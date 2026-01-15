@@ -1,0 +1,15 @@
+# 微信小程序忽略文件
+project.private.config.json  # 微信开发者工具生成的私有配置，包含敏感信息
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE相关
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
