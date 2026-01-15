@@ -1,0 +1,37 @@
+
+<!--pages/game/game.wxml-->
+<view class="container">
+  <!-- 游戏信息 -->
+  <view class="info-panel" wx:if="{{gameStatus === 'playing'}}">
+    <text>当前: {{currentPlayer === 1 ? '黑棋' : '白棋'}}回合</text>
+    <text>步数: {{steps}}</text>
+  </view>
+
+  <!-- 棋盘组件 -->
+  <board
+    currentPlayer="{{currentPlayer}}"
+    disabled="{{gameStatus !== 'playing'}}"
+    bind:ready="handleBoardReady"
+    bind:switchplayer="switchPlayer"
+    bind:gameover="handleGameOver"
+  />
+
+  <!-- 控制按钮 -->
+  <view class="control-panel" wx:if="{{showControl && gameStatus === 'playing'}}">
+    <button class="btn" bindtap="undoMove">悔棋</button>
+    <button class="btn" bindtap="restartGame">重新开始</button>
+  </view>
+
+  <!-- 控制按钮开关 -->
+  <button class="control-toggle" bindtap="toggleControl" wx:if="{{gameStatus === 'playing'}}">
+    {{showControl ? '隐藏控制' : '显示控制'}}
+  </button>
+
+  <!-- 游戏结束横幅 -->
+  <view class="game-over-banner" wx:if="{{gameStatus !== 'playing'}}">
+    <text class="banner-text" wx:if="{{gameStatus === 'black_win'}}">🎉 黑棋胜利!</text>
+    <text class="banner-text" wx:elif="{{gameStatus === 'white_win'}}">🎉 白棋胜利!</text>
+    <text class="banner-text" wx:elif="{{gameStatus === 'draw'}}">🤝 平局!</text>
+    <button class="banner-btn" bindtap="restartGame">再来一局</button>
+  </view>
+</view>

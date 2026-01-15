@@ -1,0 +1,11 @@
+
+<!--components/board/board.wxml-->
+<view class="board-container">
+  <canvas
+    type="2d"
+    id="board"
+    style="width: {{boardWidth}}px; height: {{boardWidth}}px;"
+    bindtouchstart="handleTouchStart"
+    disable-scroll="true"
+  />
+</view>

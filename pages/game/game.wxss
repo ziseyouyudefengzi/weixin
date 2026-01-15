@@ -1,0 +1,143 @@
+
+/* pages/game/game.wxss */
+
+/* 棋盘容器 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20rpx;
+  position: relative;
+}
+
+/* 游戏结束横幅 */
+.game-over-banner {
+  width: 100%;
+  max-width: 600rpx;
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border: 4rpx solid #ff0000;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  box-shadow: 0 8rpx 24rpx rgba(255, 0, 0, 0.3);
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50rpx);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.banner-text {
+  font-size: 56rpx;
+  font-weight: bold;
+  color: #ff0000;
+  display: block;
+  margin-bottom: 40rpx;
+  text-shadow: 2rpx 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.banner-btn {
+  padding: 24rpx 80rpx;
+  background: linear-gradient(135deg, #ff4444 0%, #ff0000 100%);
+  color: #fff;
+  border: none;
+  border-radius: 60rpx;
+  font-size: 36rpx;
+  font-weight: 600;
+  box-shadow: 0 6rpx 16rpx rgba(255, 0, 0, 0.4);
+}
+
+.banner-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3rpx 8rpx rgba(255, 0, 0, 0.3);
+}
+
+/* 信息面板 */
+.info-panel {
+  width: 100%;
+  max-width: 600rpx;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 24rpx 32rpx;
+  border-radius: 16rpx;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.15);
+}
+
+/* 控制面板 */
+.control-panel {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20rpx;
+  margin-top: 20rpx;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.control-panel .btn {
+  margin: 0;
+  width: 200rpx;
+  padding: 20rpx 40rpx;
+  background: #fff;
+  color: #764ba2;
+  border: 2rpx solid #764ba2;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(118, 75, 162, 0.2);
+}
+
+.control-panel .btn:active {
+  transform: scale(0.95);
+}
+
+/* 控制按钮开关 */
+.control-toggle {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+  width: 160rpx;
+  height: 80rpx;
+  border-radius: 40rpx;
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
+  font-size: 24rpx;
+  z-index: 100;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.1);
+}
+
+.control-toggle:active {
+  transform: scale(0.95);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20rpx); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 响应式调整 */
+@media (max-width: 400px) {
+  .info-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-panel text {
+    margin: 5rpx 0;
+  }
+}

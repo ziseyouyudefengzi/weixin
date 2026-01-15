@@ -1,0 +1,45 @@
+
+/* pages/index/index.wxss */
+
+/* 按钮选中状态 */
+.btn.active {
+  background-color: #1a73e8;
+  color: white;
+}
+
+/* 模式卡片内部布局 */
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mode-card text {
+  font-size: 36rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+}
+
+/* 按钮组布局 */
+.mode-card .btn {
+  width: 80%;
+  margin: 10rpx 0;
+}
+
+/* 开始游戏按钮特殊样式 */
+.container > .btn {
+  width: 60%;
+  margin-top: 40rpx;
+  background-color: #1a73e8;
+}
+
+/* 响应式调整 */
+@media (max-width: 400px) {
+  .mode-card {
+    width: 90%;
+  }
+  
+  .container > .btn {
+    width: 70%;
+  }
+}

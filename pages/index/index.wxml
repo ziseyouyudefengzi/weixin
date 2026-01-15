@@ -1,0 +1,38 @@
+
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="title">五子棋</view>
+  
+  <!-- 模式选择 -->
+  <view class="mode-card">
+    <text>选择游戏模式</text>
+    <button 
+      class="btn {{gameMode === 0 ? 'active' : ''}}" 
+      data-mode="0" 
+      bindtap="selectMode"
+    >双人对战</button>
+    <button 
+      class="btn {{gameMode === 1 ? 'active' : ''}}" 
+      data-mode="1" 
+      bindtap="selectMode"
+    >人机对战</button>
+  </view>
+
+  <!-- 难度选择（人机模式下显示） -->
+  <view class="mode-card" wx:if="{{showDifficulty}}">
+    <text>选择AI难度</text>
+    <button 
+      class="btn {{aiDifficulty === 0 ? 'active' : ''}}" 
+      data-difficulty="0" 
+      bindtap="selectDifficulty"
+    >简单</button>
+    <button 
+      class="btn {{aiDifficulty === 1 ? 'active' : ''}}" 
+      data-difficulty="1" 
+      bindtap="selectDifficulty"
+    >中等</button>
+  </view>
+
+  <!-- 开始游戏按钮 -->
+  <button class="btn" bindtap="startGame">开始游戏</button>
+</view>
